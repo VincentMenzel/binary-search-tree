@@ -1,2 +1,2 @@
-export * from './binary-search-tree';
-export * from './binary-search-tree-node';
+export * from './lib/binary-search-tree';
+export * from './lib/binary-search-tree-node';
