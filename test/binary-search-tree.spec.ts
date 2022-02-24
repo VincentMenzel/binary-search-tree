@@ -31,9 +31,7 @@ describe('Binary Search Tree', () => {
     bts.insert(0);
     bts.insert(20);
     bts.insert(25);
-    bts.insert(26);
 
-    console.log(bts.toString());
     expect(bts.min()).toEqual(0);
     expect(bts.max()).toEqual(25);
     expect(bts.size()).toEqual(4);

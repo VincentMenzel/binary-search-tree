@@ -215,8 +215,9 @@ export class BinarySearchTree {
   }
 
   /**
-   * Get the closest value to a
-   * @param value
+   * Get the value with the least difference to the given value
+   * @param {number} value - Value to search for
+   * @return {number} - Closest value to the provided number
    */
   public findClosestValueNode(value: number): BinarySearchTreeNode {
     let node = this.rootNode;
@@ -252,9 +253,9 @@ export class BinarySearchTree {
   }
 
   /**
-   * Find closest node to a given value
+   * Get the closest node to a given value
    * @param value {number}
-   * @return {BinarySearchTreeNode} -
+   * @return {BinarySearchTreeNode} - Closest node to the provided value. If inserted the value would be added as the child.
    */
   public findClosestNode(value: number): BinarySearchTreeNode {
     const searchNode = (node: BinarySearchTreeNode): BinarySearchTreeNode => {
