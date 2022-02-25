@@ -1,5 +1,4 @@
 import {BinarySearchTree} from '../src';
-import {type} from 'binary-search-tree-ts';
 describe('Binary Search Tree', () => {
   it('should initialise', function () {
     const bts = new BinarySearchTree(0);
@@ -135,11 +134,5 @@ describe('Binary Search Tree', () => {
 
     // Count of nodes in the BST
     expect(binarySearchTree.size()).toEqual(3);
-
-    console.log(binarySearchTree.toString());
-  });
-
-  it('should ', function () {
-    const test = new BinarySearchTree();
   });
 });
