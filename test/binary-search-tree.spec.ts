@@ -135,4 +135,67 @@ describe('Binary Search Tree', () => {
     // Count of nodes in the BST
     expect(binarySearchTree.size()).toEqual(3);
   });
+
+  it('should copy tree', () => {
+    const binarySearchTree = new BinarySearchTree(10);
+    binarySearchTree.insert(12);
+    binarySearchTree.insert(14);
+    binarySearchTree.insert(9);
+
+    const copy = binarySearchTree.copy();
+    expect(binarySearchTree.toString()).not.toEqual(copy);
+    expect(binarySearchTree.toString()).toEqual(copy.toString());
+  });
+
+  it('should compare tree', function () {
+    const binarySearchTree1 = new BinarySearchTree(10);
+    const binarySearchTree2 = new BinarySearchTree(10);
+    const binarySearchTree3 = new BinarySearchTree(10);
+    const binarySearchTree4 = new BinarySearchTree(10);
+    const binarySearchTree5 = new BinarySearchTree(10);
+
+    binarySearchTree1.insert(5);
+    binarySearchTree2.insert(5);
+    binarySearchTree3.insert(10);
+    binarySearchTree4.insert(10);
+    binarySearchTree5.insert(6);
+
+    binarySearchTree1.insert(6);
+    binarySearchTree2.insert(6);
+    binarySearchTree3.insert(15);
+    binarySearchTree4.insert(15);
+    binarySearchTree5.insert(5);
+
+    binarySearchTree1.insert(15);
+    binarySearchTree2.insert(15);
+    binarySearchTree3.insert(6);
+    binarySearchTree4.insert(6);
+    binarySearchTree5.insert(15);
+
+    expect(binarySearchTree1.isEuqal(binarySearchTree2)).toBeTruthy();
+    expect(binarySearchTree3.isEuqal(binarySearchTree4)).toBeTruthy();
+
+    expect(binarySearchTree2.isEuqal(binarySearchTree1)).toBeTruthy();
+    expect(binarySearchTree4.isEuqal(binarySearchTree3)).toBeTruthy();
+
+    expect(binarySearchTree1.isEuqal(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree1.isEuqal(binarySearchTree4)).toBeFalsy();
+    expect(binarySearchTree3.isEuqal(binarySearchTree1)).toBeFalsy();
+    expect(binarySearchTree4.isEuqal(binarySearchTree1)).toBeFalsy();
+
+    expect(binarySearchTree2.isEuqal(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree2.isEuqal(binarySearchTree4)).toBeFalsy();
+    expect(binarySearchTree3.isEuqal(binarySearchTree2)).toBeFalsy();
+    expect(binarySearchTree4.isEuqal(binarySearchTree2)).toBeFalsy();
+
+    expect(binarySearchTree1.isEuqal(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree2.isEuqal(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree3.isEuqal(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree4.isEuqal(binarySearchTree5)).toBeFalsy();
+
+    expect(binarySearchTree5.isEuqal(binarySearchTree1)).toBeFalsy();
+    expect(binarySearchTree5.isEuqal(binarySearchTree2)).toBeFalsy();
+    expect(binarySearchTree5.isEuqal(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree5.isEuqal(binarySearchTree4)).toBeFalsy();
+  });
 });

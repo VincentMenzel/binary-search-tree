@@ -278,4 +278,74 @@ export class BinarySearchTree {
 
     return searchNode(this.rootNode);
   }
+
+  /**
+   * Creates a copy of the current the BST
+   * @return {BinarySearchTree} - Copy of the original BST
+   */
+  public copy() {
+    const bstCopy = new BinarySearchTree(this.rootNode.value);
+
+    const copy = (from: BinarySearchTreeNode, to: BinarySearchTreeNode) => {
+      to.value = from.value;
+
+      if (from.left) {
+        to.left = new BinarySearchTreeNode(from.left.value);
+        copy(from.left, to.left);
+      }
+      if (from.right) {
+        to.right = new BinarySearchTreeNode(from.right.value);
+        copy(from.right, to.right);
+      }
+    };
+
+    copy(this.rootNode, bstCopy.rootNode);
+    return bstCopy;
+  }
+
+  isEuqal(bts: BinarySearchTree) {
+    const cmp = (node1: BinarySearchTreeNode, node2: BinarySearchTreeNode) => {
+      if (!node1 && !node2) {
+        return true;
+      }
+
+      if (node1?.value !== node2?.value) {
+        return false;
+      }
+
+      if (!node1?.left && node2?.left) {
+        return false;
+      }
+
+      if (node1?.left && !node2?.left) {
+        return false;
+      }
+
+      if (!(node1.left && node2.left)) {
+        if (!node1.left && !node2.left) {
+        } else {
+          return false;
+        }
+      } else {
+        if (!cmp(node1.left, node2.left)) {
+          return false;
+        }
+      }
+
+      if (!(node1.right && node2.right)) {
+        if (!node1.right && !node2.right) {
+        } else {
+          return false;
+        }
+      } else {
+        if (!cmp(node1.right, node2.right)) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+    return cmp(this.rootNode, bts.rootNode);
+  }
 }
