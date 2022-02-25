@@ -1,11 +1,11 @@
 {
-  "name": "binary-search-tree",
+  "name": "binary-search-tree-ts",
   "version": "1.0.3-fix-build",
   "description": "Create and work with binary search trees",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "contributors": [
-    "Vincent Menzel <email@vincentmenzel.me>(https://vincentmenzel.me/)"
+    "Vincent Menzel<email@vincentmenzel.me>(https://vincentmenzel.me/)"
   ],
   "keywords": [
     "bts",

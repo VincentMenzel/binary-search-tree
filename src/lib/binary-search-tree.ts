@@ -164,7 +164,7 @@ export class BinarySearchTree {
    * @return {array<(string|number)>}
    */
   btsTo2DArray(): (string | number)[][] {
-    const size = this.depth() - 1;
+    const size = this.depth();
     const res: (string | number)[][] = [];
 
     for (let i = 0; i < size; i++) {

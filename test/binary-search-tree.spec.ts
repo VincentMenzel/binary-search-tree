@@ -94,4 +94,47 @@ describe('Binary Search Tree', () => {
     expect(bts.findClosestNode(302).value).toEqual(303);
     expect(bts.findClosestNode(11).value).toEqual(23);
   });
+
+  it('should be correct', function () {
+    // Create a new binary search tree
+    const binarySearchTree = new BinarySearchTree(10);
+
+    // Insert new numbers
+    expect(binarySearchTree.insert(15)).toBeTruthy(); // -> true
+    expect(binarySearchTree.insert(13)).toBeTruthy(); // -> true
+    expect(binarySearchTree.insert(10)).toBeFalsy(); // -> false
+
+    // Check if BST contains a value
+    expect(binarySearchTree.contains(12)).toBeFalsy(); // -> false
+    expect(binarySearchTree.contains(10)).toBeTruthy(); // -> true
+
+    // Find min and max of the BST
+    expect(binarySearchTree.min()).toEqual(10); // -> 10
+    expect(binarySearchTree.max()).toEqual(15); // -> 15
+
+    // Find closest node to a value
+    expect(binarySearchTree.findClosestNode(17).value).toEqual(15); // -> BTSNode with value 15
+    expect(binarySearchTree.findClosestValueNode(14).value).toEqual(15); // -> BTSNode with value 15
+
+    // Find the max depth of the
+    expect(binarySearchTree.depth()).toEqual(3); // -> 2
+
+    const depth0 = binarySearchTree.valuesAtDepth(0);
+    expect(depth0[0]).toEqual(10); // -> [10]
+
+    const depth1 = binarySearchTree.valuesAtDepth(1);
+    expect(depth1[0]).toEqual('-'); // -> ['-', 15]
+    expect(depth1[1]).toEqual(15); // -> ['-', 15]
+
+    const depth2 = binarySearchTree.valuesAtDepth(2);
+    expect(depth2[0]).toEqual('-'); // -> ['-', '-', 13, '-']
+    expect(depth2[1]).toEqual('-'); // -> ['-', '-', 13, '-']
+    expect(depth2[2]).toEqual(13); // -> ['-', '-', 13, '-']
+    expect(depth2[3]).toEqual('-'); // -> ['-', '-', 13, '-']
+
+    // Count of nodes in the BST
+    expect(binarySearchTree.size()).toEqual(3);
+
+    console.log(binarySearchTree.toString());
+  });
 });
