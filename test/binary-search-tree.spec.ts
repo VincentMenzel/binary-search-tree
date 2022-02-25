@@ -172,30 +172,30 @@ describe('Binary Search Tree', () => {
     binarySearchTree4.insert(6);
     binarySearchTree5.insert(15);
 
-    expect(binarySearchTree1.isEuqal(binarySearchTree2)).toBeTruthy();
-    expect(binarySearchTree3.isEuqal(binarySearchTree4)).toBeTruthy();
+    expect(binarySearchTree1.compare(binarySearchTree2)).toBeTruthy();
+    expect(binarySearchTree3.compare(binarySearchTree4)).toBeTruthy();
 
-    expect(binarySearchTree2.isEuqal(binarySearchTree1)).toBeTruthy();
-    expect(binarySearchTree4.isEuqal(binarySearchTree3)).toBeTruthy();
+    expect(binarySearchTree2.compare(binarySearchTree1)).toBeTruthy();
+    expect(binarySearchTree4.compare(binarySearchTree3)).toBeTruthy();
 
-    expect(binarySearchTree1.isEuqal(binarySearchTree3)).toBeFalsy();
-    expect(binarySearchTree1.isEuqal(binarySearchTree4)).toBeFalsy();
-    expect(binarySearchTree3.isEuqal(binarySearchTree1)).toBeFalsy();
-    expect(binarySearchTree4.isEuqal(binarySearchTree1)).toBeFalsy();
+    expect(binarySearchTree1.compare(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree1.compare(binarySearchTree4)).toBeFalsy();
+    expect(binarySearchTree3.compare(binarySearchTree1)).toBeFalsy();
+    expect(binarySearchTree4.compare(binarySearchTree1)).toBeFalsy();
 
-    expect(binarySearchTree2.isEuqal(binarySearchTree3)).toBeFalsy();
-    expect(binarySearchTree2.isEuqal(binarySearchTree4)).toBeFalsy();
-    expect(binarySearchTree3.isEuqal(binarySearchTree2)).toBeFalsy();
-    expect(binarySearchTree4.isEuqal(binarySearchTree2)).toBeFalsy();
+    expect(binarySearchTree2.compare(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree2.compare(binarySearchTree4)).toBeFalsy();
+    expect(binarySearchTree3.compare(binarySearchTree2)).toBeFalsy();
+    expect(binarySearchTree4.compare(binarySearchTree2)).toBeFalsy();
 
-    expect(binarySearchTree1.isEuqal(binarySearchTree5)).toBeFalsy();
-    expect(binarySearchTree2.isEuqal(binarySearchTree5)).toBeFalsy();
-    expect(binarySearchTree3.isEuqal(binarySearchTree5)).toBeFalsy();
-    expect(binarySearchTree4.isEuqal(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree1.compare(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree2.compare(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree3.compare(binarySearchTree5)).toBeFalsy();
+    expect(binarySearchTree4.compare(binarySearchTree5)).toBeFalsy();
 
-    expect(binarySearchTree5.isEuqal(binarySearchTree1)).toBeFalsy();
-    expect(binarySearchTree5.isEuqal(binarySearchTree2)).toBeFalsy();
-    expect(binarySearchTree5.isEuqal(binarySearchTree3)).toBeFalsy();
-    expect(binarySearchTree5.isEuqal(binarySearchTree4)).toBeFalsy();
+    expect(binarySearchTree5.compare(binarySearchTree1)).toBeFalsy();
+    expect(binarySearchTree5.compare(binarySearchTree2)).toBeFalsy();
+    expect(binarySearchTree5.compare(binarySearchTree3)).toBeFalsy();
+    expect(binarySearchTree5.compare(binarySearchTree4)).toBeFalsy();
   });
 });

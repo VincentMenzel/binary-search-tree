@@ -163,7 +163,7 @@ export class BinarySearchTree {
    * @description - Each depth will be represented as an array. If a node does not have a child node it will be replaced with '='
    * @return {array<(string|number)>}
    */
-  btsTo2DArray(): (string | number)[][] {
+  bstTo2DArray(): (string | number)[][] {
     const size = this.depth();
     const res: (string | number)[][] = [];
 
@@ -180,16 +180,16 @@ export class BinarySearchTree {
    * @return {string} - Returns the tree as a string
    */
   toString() {
-    const btsAs2DArr = this.btsTo2DArray();
+    const bstAs2DArr = this.bstTo2DArray();
     const valueMaxChars = this.max().toString().length;
     const valueSpacing = Math.ceil(valueMaxChars / 2);
     const maxWidth =
-      btsAs2DArr.at(-1)!.length * valueMaxChars +
-      btsAs2DArr.at(-1)!.length * (2 * valueSpacing);
+      bstAs2DArr.at(-1)!.length * valueMaxChars +
+      bstAs2DArr.at(-1)!.length * (2 * valueSpacing);
 
     let treeAsString = '';
 
-    btsAs2DArr.forEach((row, i) => {
+    bstAs2DArr.forEach((row, i) => {
       const totalPaddingWidth =
         maxWidth -
         (row.length * valueMaxChars + row.length * (valueSpacing * 2));
@@ -303,7 +303,12 @@ export class BinarySearchTree {
     return bstCopy;
   }
 
-  isEuqal(bts: BinarySearchTree) {
+  /**
+   * Compare binary tree to  another instance
+   * @param {BinarySearchTree} bst - BST for comparison
+   * @return {boolean} - Returns weather both BSTs match
+   */
+  compare(bst: BinarySearchTree): boolean {
     const cmp = (node1: BinarySearchTreeNode, node2: BinarySearchTreeNode) => {
       if (!node1 && !node2) {
         return true;
@@ -346,6 +351,6 @@ export class BinarySearchTree {
       return true;
     };
 
-    return cmp(this.rootNode, bts.rootNode);
+    return cmp(this.rootNode, bst.rootNode);
   }
 }
